@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "680469257654",
+    "project_id": "bahwa-flutter-app",
+    "storage_bucket": "bahwa-flutter-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:680469257654:android:f0e3809f75e8223e247517",
+        "android_client_info": {
+          "package_name": "com.bahwa.android"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "680469257654-0iks3e1sfgdnv0bf5nhmagj00tudggcj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDQ_sUsPZwR8XcJSnD8suIFuM56Y2MqpY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "680469257654-0iks3e1sfgdnv0bf5nhmagj00tudggcj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
