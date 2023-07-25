@@ -57,7 +57,7 @@ class _MainProductsScreenState extends State<MainProductsScreen> {
                   builder: (BuildContext context) => AddProductsScreen(
                     list: widget.list,
                      docId: '',
-                    status: 'Add', productImage: '', productName: '', selectedCategory: '', productCode: '', productPrice: '',
+                    status: 'Add', productImage: '', productName: '', selectedCategory: '', productCode: '', productPrice: '', productDescription: '',
                   ))).then((value) {
 
 
@@ -295,7 +295,9 @@ class _MainProductsScreenState extends State<MainProductsScreen> {
                                                                             productName: snapshot.data!.docs[index]["productName"].toString(),
                                                                             selectedCategory: snapshot.data!.docs[index]["category"].toString(),
                                                                             productImage: snapshot.data!.docs[index]["productImage"].toString(),
-                                                                            status: 'update', productCode: snapshot.data!.docs[index]["productCode"].toString(),
+                                                                            status: 'update',
+                                                                            productCode: snapshot.data!.docs[index]["productCode"].toString(),
+                                                                            productDescription: snapshot.data!.docs[index]["productDescription"].toString(),
                                                                           )));
                                                                 },
                                                                 child: Icon(Icons.edit, size: 25,color: Colors.blue,)),

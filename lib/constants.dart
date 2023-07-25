@@ -93,7 +93,7 @@ TextStyle  body3Green = TextStyle(fontSize: body34_14,color: primaryColor,fontWe
 TextStyle  body3Red = TextStyle(fontSize: body34_14,color: redColor,fontWeight: FontWeight.bold,);
 TextStyle  body3White = TextStyle(fontSize: body34_14,color: Colors.white,fontWeight: FontWeight.bold,);
 
-TextStyle  body4Black = TextStyle(fontSize: body34_14,color: textColor,fontWeight: FontWeight.w500,);
+TextStyle  body4Black = TextStyle(fontSize: 13,color: textColor,fontWeight: FontWeight.w500,);
 TextStyle  body4Grey = TextStyle(fontSize: body34_14,color: darkGreyColor);
 TextStyle  body4Green = TextStyle(fontSize: body34_14,color: secondaryColor1,fontWeight: FontWeight.bold,);
 TextStyle  body4Red = TextStyle(fontSize: body34_14,color: redColor);

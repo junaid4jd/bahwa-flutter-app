@@ -125,6 +125,7 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
     userType = prefs.getString('userType')!;
     print(userType.toString() + ' UserType is gere');
   }
+
   var rng = Random();
   @override
   void initState() {

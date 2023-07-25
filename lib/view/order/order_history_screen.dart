@@ -204,6 +204,16 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
+
+                                                    snapshot.data!.docs[index]["orderTotal"].toString() == "Custom Order" ?
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left: 8,),
+                                                      child: Text(
+                                                        "Total :  " + snapshot.data!.docs[index]["orderTotal"].toString() + " "
+                                                        , style: TextStyle(
+                                                          color: Colors.red, fontSize: 12, fontWeight: FontWeight.w500, height: 1.3),),
+                                                    ) :
                                                     Padding(
                                                       padding: const EdgeInsets.only(left: 8,),
                                                       child: Text(
@@ -429,6 +439,17 @@ class _OrderScreenState extends State<OrderScreen> {
                                                 child: Row(
                                                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                                                   children: [
+
+                                                    snapshot.data!.docs[index]["orderTotal"].toString() == "Custom Order" ?
+
+                                                    Padding(
+                                                      padding: const EdgeInsets.only(left: 8,),
+                                                      child: Text(
+                                                        "Total :  " + snapshot.data!.docs[index]["orderTotal"].toString() + " "
+                                                        , style: TextStyle(
+                                                          color: Colors.red, fontSize: 12, fontWeight: FontWeight.w500, height: 1.3),),
+                                                    ) :
+
                                                     Padding(
                                                       padding: const EdgeInsets.only(left: 8,),
                                                       child: Text(

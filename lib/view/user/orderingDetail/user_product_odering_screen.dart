@@ -19,6 +19,7 @@ class UserProductOrderingScreen extends StatefulWidget {
   final String productCategory;
   final String productPrice;
   final String productCode;
+  final String productDescription;
 
 
   const UserProductOrderingScreen({
@@ -29,6 +30,7 @@ class UserProductOrderingScreen extends StatefulWidget {
     required this.productCategory,
     required this.productPrice,
     required this.productCode,
+    required this.productDescription,
   }) : super(key: key);
 
   @override
@@ -150,8 +152,7 @@ class _UserProductOrderingScreenState extends State<UserProductOrderingScreen> {
     // "pattern": _productPatternControoler.text,
     // "productQuantity": quantity,
     // "userId": "10",
-
-
+    print(widget.productCode.toString() + ' productCode userId');
     final snapshot = await FirebaseFirestore.instance
         .collection('UserCart').where('userId', isEqualTo: _auth.currentUser!.uid.toString()).where('productCode', isEqualTo: widget.productCode)
         .get();
@@ -280,6 +281,58 @@ class _UserProductOrderingScreenState extends State<UserProductOrderingScreen> {
                             SizedBox(
                               height: size.height * 0.01,
                             ),
+                            widget.productDescription == '' ? Container() :
+                            Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                // border: Border.all(color: greyColor, width: 0.5),
+                                color: whiteColor,
+                              ),
+                              width: size.width * 0.85,
+                              child: Column(
+                                children: [
+                                  SizedBox(
+                                    height: size.height * 0.02,
+                                  ),
+                                  Padding(
+                                    padding:
+                                    const EdgeInsets.only(top: 0, left: 8),
+                                    child: Container(
+                                        width: size.width * 0.85,
+                                        child: Text(
+                                            'Product Description',
+                                          style: TextStyle(
+                                              color: Colors.black,
+                                              fontWeight: FontWeight.w600,
+                                              fontSize: 14),
+                                        )),
+                                  ),
+                                  SizedBox(
+                                    height: size.height * 0.02,
+                                  ),
+                                  Padding(
+                                    padding:
+                                    const EdgeInsets.only(top: 0, left: 8),
+                                    child: Container(
+                                        width: size.width * 0.85,
+                                        child: Text(
+                                          widget.productDescription,
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.red,
+                                              height: 1.3,
+                                              fontWeight: FontWeight.w600),
+                                        )),
+                                  ),
+                                  SizedBox(
+                                    height: size.height * 0.02,
+                                  ),
+                                ],
+                              ),
+                            ),
+                            SizedBox(
+                              height: size.height * 0.01,
+                            ),
                             Container(
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(10),
@@ -322,7 +375,7 @@ class _UserProductOrderingScreenState extends State<UserProductOrderingScreen> {
                                             child: Icon(
                                               Icons.remove,
                                               size: 30,
-                                              color: primaryColor,
+                                              color: Colors.white,
                                             ),
                                             minWidth: size.width * 0.06,
                                             padding: EdgeInsets.zero,

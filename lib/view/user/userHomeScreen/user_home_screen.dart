@@ -1,6 +1,7 @@
 
 import 'package:bahwa_flutter_app/constants.dart';
 import 'package:bahwa_flutter_app/res/app_assets.dart';
+import 'package:bahwa_flutter_app/utils/routes/routes_name.dart';
 import 'package:bahwa_flutter_app/view/categoryItems/category_items_screen.dart';
 import 'package:bahwa_flutter_app/view/user/orderingDetail/user_product_odering_screen.dart';
 import 'package:bahwa_flutter_app/view_model/getx_model.dart';
@@ -52,10 +53,10 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
 
   // git init
   // git add README.md
-  // git commit -m "first commit"
+  // git commit -m "second commit"
   // git branch -M main
   // git remote add origin https://github.com/junaid4jd/bahwa-flutter-app.git
-  // git push -u origin main
+  // git push -f origin main
 
   @override
   void initState() {
@@ -139,42 +140,52 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
             SizedBox(
               height: size.height*0.01,
             ),
-            Container(
-              decoration: BoxDecoration(
-                color: lightblueColor,
-                borderRadius: BorderRadius.circular(10)
-              ),
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: size.height*0.01,
-                  ),
-                  ClipRRect(
-                      borderRadius: BorderRadius.circular(10),
-                      child: Image.asset( 'assets/images/checklist.png',fit: BoxFit.scaleDown,
-                        width: size.width*0.3,
-                        height: size.height*0.1,
-                      )),
-                  SizedBox(
-                    height: size.height*0.01,
-                  ),
-                  Container(
-                    width: size.width * .9,
-                    padding: EdgeInsets.only(left: 10, right: 0),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(
-                          'Custom Order',
-                          style: TextStyle(fontSize: body12_16, fontWeight: FontWeight.bold,color: textColor),
-                        ),
-                      ],
+            GestureDetector(
+              onTap: () {
+                Navigator.pushNamed(context, RoutesName.placeCustomOrder);
+              },
+              child: Container(
+                decoration: BoxDecoration(
+                  color: lightblueColor,
+                  borderRadius: BorderRadius.circular(10)
+                ),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: size.height*0.01,
                     ),
-                  ),
-                  SizedBox(
-                    height: size.height*0.01,
-                  ),
-                ],
+                    ClipRRect(
+                        borderRadius: BorderRadius.circular(10),
+                        child: Image.asset( 'assets/images/checklist.png',fit: BoxFit.scaleDown,
+                          width: size.width*0.3,
+                          height: size.height*0.1,
+                        )),
+                    SizedBox(
+                      height: size.height*0.01,
+                    ),
+                    GestureDetector(
+                      onTap: () {
+                        Navigator.pushNamed(context, RoutesName.placeCustomOrder);
+                      },
+                      child: Container(
+                        width: size.width * .9,
+                        padding: EdgeInsets.only(left: 10, right: 0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              'Custom Order',
+                              style: TextStyle(fontSize: body12_16, fontWeight: FontWeight.bold,color: textColor),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(
+                      height: size.height*0.01,
+                    ),
+                  ],
+                ),
               ),
             ),
             SizedBox(
@@ -407,7 +418,9 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
                                                                   productName: snapshot.data!.docs[index]["productName"].toString(),
                                                                   productPrice: snapshot.data!.docs[index]["productPrice"].toString(),
                                                                   productCode: snapshot.data!.docs[index]["productCode"].toString(),
-                                                                  productImage:  snapshot.data!.docs[index]["productImage"].toString(),
+                                                                   productDescription:  snapshot.data!.docs[index]["productDescription"].toString(),
+
+                                                                   productImage:  snapshot.data!.docs[index]["productImage"].toString(),
                                                                    productCategory:  snapshot.data!.docs[index]["category"].toString()),
                                                               transitionsBuilder: (c, anim, a2, child) =>
                                                                   FadeTransition(opacity: anim, child: child),

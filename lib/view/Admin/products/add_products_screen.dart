@@ -18,6 +18,7 @@ class AddProductsScreen extends StatefulWidget {
   final String productCode;
   final String docId;
   final String selectedCategory;
+  final String productDescription;
   const AddProductsScreen({Key? key,
     required this.list,
     required this.status,
@@ -27,6 +28,7 @@ class AddProductsScreen extends StatefulWidget {
     required this.productPrice,
     required this.productName,
     required this.selectedCategory,
+    required this.productDescription,
   }) : super(key: key);
 
   @override
@@ -36,7 +38,7 @@ class AddProductsScreen extends StatefulWidget {
 class _AddProductsScreenState extends State<AddProductsScreen> {
   final TextEditingController _productNameControoler = TextEditingController();
   final TextEditingController _productPriceControoler = TextEditingController();
-  final TextEditingController _productColorControoler = TextEditingController();
+  final TextEditingController _productDescriptionControoler = TextEditingController();
   final TextEditingController _productFabricControoler = TextEditingController();
   final TextEditingController _productPatternControoler = TextEditingController();
   final TextEditingController _productHeightControoler = TextEditingController();
@@ -67,6 +69,8 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
         dropdownvalue = widget.selectedCategory;
        productCode = widget.productCode;
         _productNameControoler.text = widget.productName;
+        _productDescriptionControoler.text = widget.productDescription;
+        _productPriceControoler.text = widget.productPrice;
         categoryImage = widget.productImage;
         isClassNameExist = 'yes';
         _isLoading = false;
@@ -348,6 +352,37 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
               height: size.height * 0.01,
             ),
 
+            Padding(
+              padding: const EdgeInsets.only(
+                top: 0,
+              ),
+              child: Container(
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    // border: Border.all(color: greyColor, width: 0.5),
+                    color: whiteColor,
+                  ),
+                  width: size.width * 0.85,
+                  child: TextFormField(
+                    controller: _productDescriptionControoler,
+                    keyboardType: TextInputType.text,
+                    obscureText: false,
+                    maxLines: 3,
+                    cursorColor: Colors.black,
+                    style: TextStyle(color: Colors.black),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      fillColor: whiteColor,
+                      contentPadding:
+                      EdgeInsets.only(left: 9.0, top: 13, bottom: 13),
+                      hintText: 'Product Description',
+                      hintStyle: TextStyle(color: greyColor),
+                    ),
+                    onChanged: (String value) {},
+                  )),
+            ),
+
+
             SizedBox(
               height: size.height * 0.01,
             ),
@@ -555,6 +590,7 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
                           // "fabric": isCustomized ? "" : _productFabricControoler.text,
                           // "pattern": isCustomized ? "" : _productPatternControoler.text,
                           "productCode": productCode.toString(),
+                          "productDescription": _productDescriptionControoler.text.toString(),
                           "stockCount": "10",
                           //  "currentlyAddedStudents": widget.currentStudents,
                         }).then((value) {
@@ -617,6 +653,7 @@ class _AddProductsScreenState extends State<AddProductsScreen> {
                             // "fabric": isCustomized ? "" : _productFabricControoler.text,
                             // "pattern": isCustomized ? "" : _productPatternControoler.text,
                             "productCode": productCode.toString(),
+                            "productDescription": _productDescriptionControoler.text.toString(),
                             "stockCount": "10",
 
                           }).then((value) {

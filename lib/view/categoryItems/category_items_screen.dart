@@ -83,6 +83,7 @@ class _CategoryItemScreenState extends State<CategoryItemScreen> {
                                               productPrice: snapshot.data!.docs[index]["productPrice"].toString(),
                                               productCode: snapshot.data!.docs[index]["productCode"].toString(),
                                               productImage:  snapshot.data!.docs[index]["productImage"].toString(),
+                                              productDescription:  snapshot.data!.docs[index]["productDescription"].toString(),
                                               productCategory:  snapshot.data!.docs[index]["category"].toString()),
                                       transitionsBuilder: (c, anim, a2, child) =>
                                           FadeTransition(opacity: anim, child: child),
@@ -247,27 +248,27 @@ class _CategoryItemScreenState extends State<CategoryItemScreen> {
                                 child: GestureDetector(
                                   onTap: () {
 
-                                    Navigator.push(
-                                      context,
-                                      PageRouteBuilder(
-                                        pageBuilder: (c, a1, a2) =>
-                                            UserProductOrderingScreen(
-                                                docId: snapshot.data!.docs[index].id.toString(),
-                                                productName: snapshot.data!.docs[index]["productName"].toString(),
-                                                productPrice: snapshot.data!.docs[index]["productPrice"].toString(),
-                                                productCode: snapshot.data!.docs[index]["productCode"].toString(),
-                                                productImage:  snapshot.data!.docs[index]["productImage"].toString(),
-                                                productCategory:  snapshot.data!.docs[index]["category"].toString()),
-                                        transitionsBuilder: (c, anim, a2, child) =>
-                                            FadeTransition(opacity: anim, child: child),
-                                        transitionDuration: Duration(milliseconds: 0),
-                                      ),
-                                    ).then((value) {
-                                      cartController.fetchCartItems();
-                                      setState(() {
-
-                                      });
-                                    });
+                                    // Navigator.push(
+                                    //   context,
+                                    //   PageRouteBuilder(
+                                    //     pageBuilder: (c, a1, a2) =>
+                                    //         UserProductOrderingScreen(
+                                    //             docId: snapshot.data!.docs[index].id.toString(),
+                                    //             productName: snapshot.data!.docs[index]["productName"].toString(),
+                                    //             productPrice: snapshot.data!.docs[index]["productPrice"].toString(),
+                                    //             productCode: snapshot.data!.docs[index]["productCode"].toString(),
+                                    //             productImage:  snapshot.data!.docs[index]["productImage"].toString(),
+                                    //             productCategory:  snapshot.data!.docs[index]["category"].toString()),
+                                    //     transitionsBuilder: (c, anim, a2, child) =>
+                                    //         FadeTransition(opacity: anim, child: child),
+                                    //     transitionDuration: Duration(milliseconds: 0),
+                                    //   ),
+                                    // ).then((value) {
+                                    //   cartController.fetchCartItems();
+                                    //   setState(() {
+                                    //
+                                    //   });
+                                    // });
 
                                   },
                                   child: Container(

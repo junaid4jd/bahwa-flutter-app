@@ -24,7 +24,8 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
   void initState() {
     print('white');
     // TODO: implement initState
-    //print(widget.product.color.toString());
+    print(widget.product.userType.toString() + '  white');
+    print(widget.product.userType.toString() + '  white');
     // if( widget.product.color !=   'white' &&
     // widget.product.color !=   'blue' &&
     // widget.product.color !=   'black' &&
@@ -182,10 +183,14 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: Text(
-                                      widget.product.productName.toString(),
-                                      style: body4Black
+                                  padding: const EdgeInsets.only(right: 0),
+                                  child: Container(
+                                    // width: size.width * .5,
+                                    child: Text(
+                                        widget.product.productName.toString(),
+                                        style: body4Black,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
                                   ),
                                 ),
                               ],
@@ -226,6 +231,58 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                             ),
                           ),
                         ),
+                        widget.product.userType == 'Custom Order' ? Column(children: [
+                          Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,),
+                                    child: Text(
+                                        'Glass Height  : ',
+                                        style: body4Black
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: Text(
+                                        '${ widget.product.productCategory.toString()}',
+                                        style: body4Black
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: Container(
+                              child: Row(
+                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                children: [
+
+                                  Padding(
+                                    padding: const EdgeInsets.only(left: 20,),
+                                    child: Text(
+                                        'Glass Width  : ',
+                                        style: body4Black
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.only(right: 20),
+                                    child: Text(
+                                        '${ widget.product.productStatus.toString()}',
+                                        style: body4Black
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],) : Container(),
                         Padding(
                           padding: const EdgeInsets.all(6.0),
                           child: Container(
@@ -291,10 +348,13 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                                   ),
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(right: 20),
-                                  child: Text(
-                                      widget.product.email.toString(),
-                                      style: body4Black
+                                  padding: const EdgeInsets.only(right: 10),
+                                  child: Container(
+                                    width: size.width * .55,
+                                    child: Text(
+                                        widget.product.email.toString(),
+                                        style: TextStyle(fontSize: 13,color: textColor,fontWeight: FontWeight.w500,overflow: TextOverflow.ellipsis)
+                                    ),
                                   ),
                                 ),
                               ],

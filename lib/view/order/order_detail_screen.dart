@@ -174,6 +174,26 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                       style: body4Black
                                   ),
                                 ),
+
+
+                                widget.orderTotal.toString() == "Custom Order" ?
+
+                                Padding(
+                                  padding: const EdgeInsets.only(right: 20),
+                                  child: Container(
+                                    decoration: BoxDecoration(
+                                        color: Colors.green,
+                                        borderRadius: BorderRadius.circular(10)
+                                    ),
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Text(
+                                          widget.orderTotal.toString(),
+                                          style: body4White
+                                      ),
+                                    ),
+                                  ),
+                                ) :
                                 Padding(
                                   padding: const EdgeInsets.only(right: 20),
                                   child: Container(
@@ -393,6 +413,60 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                         SizedBox(
                                           height: size.height*0.008,
                                         ),
+
+                                        widget.productsList[index]["userType"] == 'Custom Order' ? Column(children: [
+                                          Padding(
+                                            padding: const EdgeInsets.all(6.0),
+                                            child: Container(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left: 10,),
+                                                    child: Text(
+                                                        'Glass Height  : ',
+                                                        style: caption3Black
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right: 0),
+                                                    child: Text(
+                                                        '${ widget.productsList[index]["category"].toString()}',
+                                                        style: caption3Red
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding: const EdgeInsets.all(6.0),
+                                            child: Container(
+                                              child: Row(
+                                                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                                children: [
+
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(left: 10,),
+                                                    child: Text(
+                                                        'Glass Width  : ',
+                                                        style: caption3Black
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding: const EdgeInsets.only(right: 0),
+                                                    child: Text(
+                                                        '${ widget.productsList[index]["productStatus"].toString()}',
+                                                        style: caption3Red
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ),
+                                        ],) :
+
                                         Container(
                                           width: size.width*0.53,
                                           child: Row(
@@ -419,7 +493,7 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                                             mainAxisAlignment: MainAxisAlignment.start,
                                             children: [
                                               Padding(
-                                                padding: const EdgeInsets.only(left: 12),
+                                                padding: const EdgeInsets.only(left: 15),
                                                 child: Container(
                                                   child: Text(
                                                     'Product Quantity ' +   widget.productsList[index]["productQuantity"].toString()
