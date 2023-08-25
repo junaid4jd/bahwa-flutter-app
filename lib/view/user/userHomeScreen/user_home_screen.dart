@@ -43,8 +43,6 @@ class _UserHomeScreenState extends State<UserHomeScreen> {
           email = value.docs[0]['email'];
         });
       });
-
-
     } else {
       print('Starting usertype');
     }

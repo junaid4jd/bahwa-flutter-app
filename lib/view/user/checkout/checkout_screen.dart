@@ -730,13 +730,20 @@ class _CheckOutScreenState extends State<CheckOutScreen> {
                                 print('user data');
 
                                 FirebaseFirestore.instance
-                                    .collection('UserCart').doc(element.id.toString()).update({
-                                  'productStatus': 'Ordered'
-                                }).then((value) {
+                                    .collection('UserCart').doc(element.id.toString()).delete().then((value) {
                                   print('updateProductsStatus ${element.id.toString()}');
                                   cartController.fetchCartItems();
                                   //getTotal();
                                 });
+
+                                // FirebaseFirestore.instance
+                                //     .collection('UserCart').doc(element.id.toString()).update({
+                                //   'productStatus': 'Ordered'
+                                // }).then((value) {
+                                //   print('updateProductsStatus ${element.id.toString()}');
+                                //   cartController.fetchCartItems();
+                                //   //getTotal();
+                                // });
 
                               });
 

@@ -82,7 +82,7 @@ class _MyAppState extends State<MyApp> {
       initialRoute: RoutesName.splash,
       theme: ThemeData(fontFamily: 'Poppins'),
       home:
-      userType == 'Users' ? AppBottomNavBarScreen(index: 0, title: userType, subTitle: uid,) :
+      userType == 'Users' || email != 'null' ? AppBottomNavBarScreen(index: 0, title: userType, subTitle: uid,) :
       userType == 'Admin' ? AppBottomNavBarAdminScreen(index: 0, title: userType, subTitle: uid,) :
       SplashScreen(),
     );
